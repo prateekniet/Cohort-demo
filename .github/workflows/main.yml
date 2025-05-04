@@ -1,0 +1,12 @@
+name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # Checks out your code
+      - uses: actions/setup-node@v4  # Installs Node.js (version 20)
+        with:
+          node-version: '20'
+      - run: npm install -g bats  # Installs bats testing framework
+      - run: bats -v  # Outputs the bats version
